@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="icones/favicon.png">
+    <title>Dress Up!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="imagens/logo.png" alt="Logo da Loja">
+        </a>
+    </header>
+
+    <!-- Carrossel de Banner -->
+    <section class="banner-carousel">
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="prevBanner()">←</button>
+            <div class="carousel-slides" id="banner-slides">
+                <img src="imagens/banners/banner1.png" alt="Banner 1">
+                <img src="imagens/banners/banner2.png" alt="Banner 2">
+            </div>
+            <button class="carousel-btn next" onclick="nextBanner()">→</button>
+        </div>
+    </section>
+
+    <!-- Carrossel de Produtos -->
+    <section class="product-carousel" id="product-carousel">
+        <h2>Mais Vendidos:</h2>
+        <div class="carousel-wrapper">
+            <div class="carousel-slides" id="product-slides">
+                <div class="product-row">
+                    <div class="product-item">
+                        <a href="#" class="image-link">
+                            <div class="image-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta (frente)" class="front-image">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta (verso)" class="back-image">
+                            </div>
+                        </a>
+                        <a href="#" class="product-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="product-item">
+                        <a href="#" class="image-link">
+                            <div class="image-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta (frente)" class="front-image">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta (verso)" class="back-image">
+                            </div>
+                        </a>
+                        <a href=# class="product-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="product-item">
+                        <a href="#" class="image-link">
+                            <div class="image-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta (frente)" class="front-image">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta (verso)" class="back-image">
+                            </div>
+                        </a>
+                        <a href="#" class="product-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="product-item">
+                        <a href="#" class="image-link">
+                            <div class="image-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta (frente)" class="front-image">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta (verso)" class="back-image">
+                            </div>
+                        </a>
+                        <a href="#" class="product-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="product-item">
+                        <a href="#" class="image-link">
+                            <div class="image-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta (frente)" class="front-image">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta (verso)" class="back-image">
+                            </div>
+                        </a>
+                        <a href="#" class="product-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev" onclick="prevProduct()">←</button>
+            <button class="carousel-btn next" onclick="nextProduct()">→</button>
+        </div>
+    </section>
+
+    <!-- Pop-up de Compra -->
+    <div id="popup-compra" class="popup hidden">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <!-- Imagem da camisa -->
+            <img src="#" alt="Camiseta" class="popup-image">
+
+            <!-- Detalhes do produto -->
+            <div class="popup-details">
+                <h2>Camiseta</h2>
+                <p><b>R$99,90</b></p>
+
+                <!-- Seção de tamanhos -->
+                <div class="tamanho-options">
+                    <label>Tamanho: <span id="tamanho-selecionado" class="bold"></span></label><br>
+                    <button class="selected">P</button>
+                    <button>M</button>
+                    <button>G</button>
+                    <button>GG</button>
+                </div>
+
+                <!-- Quantidade e Botão de compra -->
+                <div class="qty-selector">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </div>
+                <div class="qty-selector">
+                <button class="compra-btn">Comprar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Faixa de Frete Grátis -->
+    <div class="marquee" id="marquee">
+        <div class="marquee-content">
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span>
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span>
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span>
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span>
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span> <!-- Duplicar a frase -->
+            <span>FRETE GRÁTIS A PARTIR DE R$190,90</span> <!-- Duplicar a frase -->
+        </div>
+    </div>
+
+    <!-- Seção de Imagens em Grade -->
+    <section class="image-grid">
+        <div class="image-item">
+            <a href="#">
+                <img src="imagens/roupas/camiseta2.jpg" alt="Imagem 1">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="#">
+                <img src="imagens/roupas/camiseta2.jpg" alt="Imagem 2">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="#">
+                <img src="imagens/roupas/camiseta2.jpg" alt="Imagem 3">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="#">
+                <img src="imagens/roupas/camiseta2.jpg" alt="Imagem 4">
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de Roupas -->
+    <section class="product-secao" id="product-secao">
+        <h2>Para você:</h2>
+        <div class="secao-wrapper">
+            <div class="secao-slides" id="secao-slides">
+                <div class="secao-row">
+
+
+                    <!-- PRIMEIRA FILEIRA-->
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+
+                    <!-- SEGUNDA FILEIRA-->
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                    <div class="secao-item">
+                        <a href="#" class="secao-link">
+                            <div class="secao-container">
+                                <img src="imagens/roupas/camiseta1.jpg" alt="Camiseta Preta (frente)"
+                                    class="front-image-secao">
+                                <img src="imagens/roupas/camiseta2.jpg" alt="Camiseta Preta (verso)"
+                                    class="back-image-secao">
+                            </div>
+                        </a>
+                        <a href="#" class="secao-link">
+                            <h3>Camiseta</h3>
+                            <p>R$99,90</p>
+                        </a>
+                        <button class="secaobuy-btn" data-name="Camiseta" data-price="R$99,90"
+                            data-image="imagens/roupas/camiseta1.jpg">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev" onclick="prevProduct()">←</button>
+            <button class="carousel-btn next" onclick="nextProduct()">→</button>
+        </div>
+    </section>
+
+    <!-- ZAPPPPPPPPPPPPPPPPPPPPPP -->
+    <a href="#" class="whatsapp-icon" target="_blank" title="Suporte via WhatsApp">
+        <img src="icones/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+    <!-- RODAPÉEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+          <!-- Links de navegação -->
+          <div class="footer-column">
+            <h4>Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Guia de Medidas</a></li>
+              <li><a href="#">Termos de Serviço</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+      
+          <!-- Contato -->
+          <div class="footer-column">
+            <h4>Contato</h4>
+            <p><strong>WhatsApp:</strong> (48) 1234-5678</p>
+            <p><strong>Email:</strong> suporte@dressup.com</p>
+            <p><strong>Endereço:</strong><br>R. João Ninguém, 99 - Bairro<br>Cidade - UF, 12345-678</p>
+          </div>
+      
+          <!-- Redes sociais -->
+          <div class="footer-column">
+            <h4>Siga-nos</h4>
+            <div class="social-icons">
+              <a href="https://facebook.com"><img src="icones/FACEBOOK.jpg" alt="Facebook"></a>
+              <a href="https://instagram.com"><img src="icones/instagram.jpg" alt="Instagram"></a>
+            </div>
+          </div>
+      
+          <div class="footer-copy">
+            <p>&copy; DRESS UP - 2025. (Desenvolvido por Davi Lima)</p>
+          </div>
+        </footer>
+      
+    <!-- RODAPÉEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
