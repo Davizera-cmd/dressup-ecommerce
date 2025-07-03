@@ -1,4 +1,8 @@
 /* Remove margens e paddings padrão do body */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 body,
 html {
     margin: 0;
