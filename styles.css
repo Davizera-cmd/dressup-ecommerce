@@ -1122,6 +1122,13 @@ body {
     .banner-carousel .carousel-btn {
       font-size: 40px;
     }
+
+    .product-carousel h2 {
+        font-size: 2rem;
+    }
+    .product-secao h2 {
+        font-size: 2rem;
+    }
   }
 
   
